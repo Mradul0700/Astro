@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astrology Consultation Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: url('https://images.unsplash.com/photo-1621605812616-70e2a5f975f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(4px);
+      color: #fff;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #f9c80e;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebc5c;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+    .footer a {
+      color: #f9c80e;
+      text-decoration: none;
+    }
+    .upi-box {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .upi-box p {
+      margin: 10px 0;
+    }
+    .upi-id {
+      font-weight: bold;
+      font-size: 18px;
+      color: #0f0;
+    }
+    .qr-img {
+      margin-top: 10px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Astrology Consultation Form</h1>
+    <form id="astroForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="birthplace">Birth Place:</label>
+      <input type="text" id="birthplace" name="birthplace" required />
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label for="birthtime">Time of Birth:</label>
+      <input type="time" id="birthtime" name="birthtime" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="plan">Choose Plan:</label>
+      <select name="plan" id="plan" required>
+        <option value="Kundali Consultation - 1100">Kundali Consultation - ₹1,100</option>
+        <option value="Match Making - 501">Match Making - ₹501</option>
+        <option value="Complete Kundali Analysis - 3100">Complete Kundali Analysis - ₹3,100</option>
+      </select>
+
+      <div class="upi-box">
+        <p>Please scan the QR code below to make your payment:</p>
+        <img src="http://funsforyou.xyz/test/WhatsApp%20Image%202025-06-18%20at%202.02.59%20PM.jpeg" alt="Payment QR Code" class="qr-img" />
+        <p>After payment, click the button below to send your details and screenshot on WhatsApp.</p>
+      </div>
+
+      <label for="screenshot">Upload Payment Screenshot:</label>
+      <input type="file" id="screenshot" accept="image/*" required />
+
+      <a id="whatsappLink" class="btn-whatsapp" href="#" target="_blank">Send Details on WhatsApp</a>
+    </form>
+    <div class="footer">
+      Follow us on Instagram: <a href="https://instagram.com/mradul.tiwari_" target="_blank">@mradul.tiwari_</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('whatsappLink').addEventListener('click', function(event) {
+      const name = document.getElementById('name').value;
+      const birthplace = document.getElementById('birthplace').value;
+      const dob = document.getElementById('dob').value;
+      const birthtime = document.getElementById('birthtime').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const plan = document.getElementById('plan').value;
+
+      const msg = `Consultation Request:%0AName: ${name}%0ABirthplace: ${birthplace}%0ADate of Birth: ${dob}%0ATime of Birth: ${birthtime}%0AEmail: ${email}%0APhone: ${phone}%0ASelected Plan: ${plan}%0A(Please attach payment screenshot)`;
+
+      const whatsappURL = `https://wa.me/+919406539464?text=${msg}`;
+      this.href = whatsappURL;
+    });
+  </script>
+</body>
+</html>
